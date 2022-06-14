@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Product} } = require('../server/db')
 
 const users = [{
   username: "rsaywell0",
@@ -114,7 +114,7 @@ const users = [{
 }]
 
 const products = [{
-  product_name: "Cat Dancer", 
+  product_name: "Cat Dancer",
   category: "cat",
   price: 4.57,
   image: "http://dummyimage.com/203x100.png/5fa2dd/ffffff"
@@ -160,7 +160,7 @@ const products = [{
   image: "http://dummyimage.com/223x100.png/cc0000/ffffff"
 }, {
   product_name: "Creamy Lickable Cat Treat - 20 pack",
-  category: "cat", 
+  category: "cat",
   price: 24.74,
   image: "http://dummyimage.com/174x100.png/cc0000/ffffff"}]
 
@@ -174,19 +174,19 @@ async function seed() {
   console.log('db synced!')
 
   // Creating Users
-  const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
-  ])
+  const seedUsers = await Promise.all(users.map(user => {
+    return User.create(user);
+  }))
 
-  console.log(`seeded ${users.length} users`)
+  //Creating Products
+  const seedProducts = await Promise.all(products.map(product => {
+    return Product.create(product);
+  }))
+
+
+  console.log(`seeded ${seedUsers.length} users`)
+  console.log(`seeded ${seedProducts.length} products`)
   console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
 }
 
 /*
