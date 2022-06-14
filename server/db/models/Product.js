@@ -20,7 +20,7 @@ const Product = db.define('product', {
   },
   image: {
     type: Sequelize.STRING,
-    default: 'https://media.istockphoto.com/vectors/cartoon-dog-cat-animal-frame-border-vector-id659973608?k=20&m=659973608&s=612x612&w=0&h=-pERm6rxOOXIxW6WzZUjaPWggPDseV7I649Q0-ZnA54=',
+    defaultValue: 'https://media.istockphoto.com/vectors/cartoon-dog-cat-animal-frame-border-vector-id659973608?k=20&m=659973608&s=612x612&w=0&h=-pERm6rxOOXIxW6WzZUjaPWggPDseV7I649Q0-ZnA54=',
     validate: {
       isUrl: true
     }
