@@ -2,14 +2,14 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const Product = db.define('product', {
-  name: {
+  product_name: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
       notEmpty: true
     }
   },
-  category: Sequelize.ENUM(/*enter some fields here*/),
+  category: Sequelize.ENUM("cat", "dog"),
   description: Sequelize.TEXT,
   price: {
     type: Sequelize.DECIMAL,

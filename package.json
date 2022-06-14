@@ -1,7 +1,7 @@
 {
-  "name": "fs-app-template",
+  "name": "pet-play",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "A pet store for toys, treats, and more!",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
