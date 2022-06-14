@@ -2,6 +2,60 @@
 
 const {db, models: {User} } = require('../server/db')
 
+const users = 
+
+const products = [{
+  product_name: "Cat Dancer", 
+  category: "cat",
+  price: "$4.57",
+  image: "http://dummyimage.com/203x100.png/5fa2dd/ffffff"
+}, {
+  product_name: "Bacon Flavored Wishbone For Chewing",
+  category: "dog",
+  price: "$10.04",
+  image: "http://dummyimage.com/143x100.png/cc0000/ffffff"
+}, {
+  product_name: "Expandable Tunnel Fort",
+  category: "cat",
+  price: "$14.70",
+  image: "http://dummyimage.com/224x100.png/dddddd/000000"
+}, {
+  product_name: "Plush Dragon Toy",
+  category: "dog",
+  price: "$14.87",
+  image: "http://dummyimage.com/135x100.png/dddddd/000000"
+}, {
+  product_name: "Knotted Rope",
+  category: "dog",
+  price: "$9.90",
+  image: "http://dummyimage.com/197x100.png/ff4444/ffffff"
+}, {
+  product_name: "Catnip Filled Plush Mouse",
+  category: "cat",
+  price: "$15.51",
+  image: "http://dummyimage.com/231x100.png/dddddd/000000"
+}, {
+  product_name: "Rubber Balls - Set of 5",
+  category: "dog",
+  price: "$24.70",
+  image: "http://dummyimage.com/127x100.png/cc0000/ffffff"
+}, {
+  product_name: "Edible Pizza Pie Cookie Gift Set",
+  category: "dog",
+  price: "$28.36",
+  image: "http://dummyimage.com/151x100.png/cc0000/ffffff"
+}, {
+  product_name: "Cat Castle",
+  category: "cat",
+  price: "$78.34",
+  image: "http://dummyimage.com/223x100.png/cc0000/ffffff"
+}, {
+  product_name: "Creamy Lickable Cat Treat - 20 pack",
+  category: "cat", 
+  price: "$24.74",
+  image: "http://dummyimage.com/174x100.png/cc0000/ffffff"}]
+
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
