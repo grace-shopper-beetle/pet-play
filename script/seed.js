@@ -117,7 +117,8 @@ const products = [{
   product_name: "Cat Dancer",
   category: "cat",
   price: 4.57,
-  image: "http://dummyimage.com/203x100.png/5fa2dd/ffffff"
+  image: "http://dummyimage.com/203x100.png/5fa2dd/ffffff",
+  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Bacon Flavored Wishbone For Chewing",
   category: "dog",
@@ -132,7 +133,8 @@ const products = [{
   product_name: "Plush Dragon Toy",
   category: "dog",
   price: 14.87,
-  image: "http://dummyimage.com/135x100.png/dddddd/000000"
+  image: "http://dummyimage.com/135x100.png/dddddd/000000",
+  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Knotted Rope",
   category: "dog",
