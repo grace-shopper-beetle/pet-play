@@ -14,7 +14,6 @@ class SingleProduct extends React.Component {
 
   render() {
     const product = this.props.singleProduct;
-    console.log('props', product)
     return (
       <div>
         <img src={product.image} />
@@ -30,7 +29,6 @@ class SingleProduct extends React.Component {
 }
 
 const mapState = (state) => {
-  console.log('state', state)
   return {
     singleProduct: state.singleProduct
   }
