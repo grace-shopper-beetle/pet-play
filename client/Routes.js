@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import { Login, Signup } from './components/AuthForm';
+import AllProducts from './components/AllProducts';
 import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import {me} from './store'
@@ -29,6 +30,7 @@ class Routes extends Component {
             <Route path='/' exact component={ Login } />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/products" component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
           </Switch>
         )}
