@@ -193,13 +193,6 @@ async function seed() {
     return Product.create(product);
   }))
 
-  const user1 = await User.findByPk(3)
-  const product1 = await Product.findByPk(1)
-  const product2 = await Product.findByPk(2)
-  const product3 = await Product.findByPk(3)
-
-  await user1.setProducts([product1, product2, product3])
-
   console.log(`seeded ${seedUsers.length} users`)
   console.log(`seeded ${seedProducts.length} products`)
   console.log(`seeded successfully`)
