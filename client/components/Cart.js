@@ -3,60 +3,70 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import { fetchCart } from '../store/cart'
 
+// When using add to cart for localstorage, use JSON.stringify inside setItem
+// When retrieving info from localstorage, use JSON.parse around getItem
+
 class Cart extends Component {
     componentDidMount() {
         this.props.fetchCart(this.props.auth.id)
     }
     render() {
-        const localStorageCart = localStorage.getItem('cart');
-        const userCartTotal = this.props.cart.reduce((sum, price) => {
-            return sum + price
-            }, 0
-        )
-        const guestCartTotal = localStorageCart.reduce((sum, price) => {
-            return sum + price
-            }, 0
-        )
+        const localStorageCart = JSON.parse(localStorage.getItem('cart'));
         return (
         <div>
             <h1>Your Cart</h1>
             <Link to={'/products'}>Continue Shopping</Link>
             {this.props.isLoggedIn ? (
-            <div>
-                {this.props.cart.map(item => {
-                    return (
+                // User is logged in
+                this.props.cart ? (
+                    // There are items in the cart
+                    <div>
                         <div>
-                            <img src={item.image} />
-                            <h3>{item.product_name}</h3>
-                            <p>{item.price}</p>
+                        {this.props.cart.map(item => {
+                            return (
+                                <div>
+                                    <img src={item.image} />
+                                    <h3>{item.product_name}</h3>
+                                    <p>{`$${item.price/100}`}</p>
+                                </div>
+                            )
+                        })}
+                        </ div>
+                        <div>
+                            <p>Total: {`$${(this.props.cart.reduce((sum, price) => (sum + price), 0))/100}`}</p>
+                            <button type='button'><Link to='/confirmation'>Place Order</Link></button>
                         </div>
-                    )}
-                )}
-                <div>
-                    {/* if cart is empty, disable button*/}
-                    <p>Total: {userCartTotal}</p>
-                    <button type='button'><Link to='/confirmation'>Place Order</Link></button>
-                </div>
-            </div>
+                    </div>
+                ) : (
+                    // There are no items in the cart
+                    <div>Your cart is empty!</div>
+                )
              ) : (
-            <div>
-                {localStorageCart.map(item => {
-                    return (
+                // User is not logged in
+                localStorageCart ? (
+                    // There are items in the cart
+                    <div>
                         <div>
-                            <img src={item.image} />
-                            <h3>{item.product_name}</h3>
-                            <p>{item.price}</p>
+                        {localStorageCart.map(item => {
+                            return (
+                                <div>
+                                    <img src={item.image} />
+                                    <h3>{item.product_name}</h3>
+                                    <p>{`$${item.price/100}`}</p>
+                                </div>
+                            )
+                        })}
+                        </ div>
+                        <div>
+                            <p>Total: {`$${(localStorageCart.reduce((sum, price) => (sum + price), 0))/100}`}</p>
+                            <button type='button'><Link to='/checkout'>Proceed to Checkout</Link></button>
                         </div>
-                    )}
-                )}
-                <div>
-                    {/* if cart is empty, disable button*/}
-                    <p>Total: {guestCartTotal}</p>
-                    <button type='button'><Link to='/checkout'>Proceed to Checkout</Link></button>
-                </div>
-            </div>
-             )
-            }
+                    </div>
+                ) : (
+                    // There are no items in the cart
+                    <div>Your cart is empty!</div>
+                )
+             )}
         </div>
         )
     }
@@ -73,7 +83,7 @@ const mapState = state => {
 
 const mapDispatch = (dispatch) => ({
     fetchCart: (id) => dispatch(fetchCart(id))
-}) 
+})
 
 export default connect(mapState, mapDispatch)(Cart);
 
