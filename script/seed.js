@@ -116,63 +116,65 @@ const users = [{
 const products = [{
   product_name: "Cat Dancer",
   category: "cat",
-  price: 4.57,
+  price: 457,
   image: "http://dummyimage.com/203x100.png/5fa2dd/ffffff",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Bacon Flavored Wishbone For Chewing",
   category: "dog",
-  price: 10.04,
+  price: 1004,
   image: "http://dummyimage.com/143x100.png/cc0000/ffffff",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Expandable Tunnel Fort",
   category: "cat",
-  price: 14.70,
+  price: 1470,
   image: "http://dummyimage.com/224x100.png/dddddd/000000",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Plush Dragon Toy",
   category: "dog",
-  price: 14.87,
+  price: 1487,
   image: "http://dummyimage.com/135x100.png/dddddd/000000",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Knotted Rope",
   category: "dog",
-  price: 9.90,
+  price: 990,
   image: "http://dummyimage.com/197x100.png/ff4444/ffffff",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Catnip Filled Plush Mouse",
   category: "cat",
-  price: 15.51,
+  price: 1551,
   image: "http://dummyimage.com/231x100.png/dddddd/000000",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Rubber Balls - Set of 5",
   category: "dog",
-  price: 24.70,
+  price: 2470,
   image: "http://dummyimage.com/127x100.png/cc0000/ffffff",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Edible Pizza Pie Cookie Gift Set",
   category: "dog",
-  price: 28.36,
+  price: 2836,
   image: "http://dummyimage.com/151x100.png/cc0000/ffffff",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Cat Castle",
   category: "cat",
-  price: 78.34,
+  price: 7834,
   image: "http://dummyimage.com/223x100.png/cc0000/ffffff",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
 }, {
   product_name: "Creamy Lickable Cat Treat - 20 pack",
   category: "cat",
-  price: 24.74,
+  price: 2474,
   image: "http://dummyimage.com/174x100.png/cc0000/ffffff",
   description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'}]
+
+
 
 
 /**
