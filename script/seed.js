@@ -195,7 +195,6 @@ async function seed() {
     return Product.create(product);
   }))
 
-
   console.log(`seeded ${seedUsers.length} users`)
   console.log(`seeded ${seedProducts.length} products`)
   console.log(`seeded successfully`)
