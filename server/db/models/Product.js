@@ -12,7 +12,7 @@ const Product = db.define('product', {
   category: Sequelize.ENUM("cat", "dog"),
   description: Sequelize.TEXT,
   price: {
-    type: Sequelize.DECIMAL(10,2),
+    type: Sequelize.INTEGER,
     allowNull: false,
     validate: {
       notEmpty: true
