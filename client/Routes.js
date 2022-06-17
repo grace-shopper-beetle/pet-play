@@ -7,6 +7,7 @@ import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import GuestCheckout from './components/GuestCheckout';
+import Confirmation from './components/Confirmation';
 import {me} from './store'
 
 /**
@@ -36,6 +37,7 @@ class Routes extends Component {
             <Route path="/products/:id" component={SingleProduct} />
             <Route path="/cart" component={Cart} />
             <Route path="/checkout" component={GuestCheckout} />
+            <Route path="/confirmation" component={Confirmation} />
           </Switch>
         )}
       </div>

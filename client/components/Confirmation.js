@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-export class Confirmation extends Component {
+class Confirmation extends Component {
     
     render() {
         return (
@@ -11,8 +11,6 @@ export class Confirmation extends Component {
         )
     }
 }
-
-
 
 // <!DOCTYPE html>
 // <html>
@@ -29,4 +27,6 @@ export class Confirmation extends Component {
 //     </div>
 //   </body>
 // </html>
+
+export default Confirmation;
 
