@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class GuestCheckout extends Component {
   constructor() {
     super();
-    
+
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -83,7 +83,7 @@ class GuestCheckout extends Component {
               <label>
                 <input type="checkbox" checked="checked" name="sameadr" /> Shipping address same as billing
               </label>
-              <input type="submit" value="Place Your Order" className="btn" />
+              <button type="submit" className="btn">Place Your Order</button>
         </form>
       </div>
     </div>
@@ -93,12 +93,12 @@ class GuestCheckout extends Component {
             <h4>Cart
               <span className="price">
                 <i className="fa fa-shopping-cart"></i>
-                <b>4</b>
+                <b>{/* CART QUANTITY */}</b>
               </span>
             </h4>
             {/* MAP THROUGH PRODUCTS IN CART FOR THE USER WITH THE PRICE HERE */}
             <hr />
-            <p>Total <span className="price"><b>{/* add total price */}</b></span></p>
+            <p>Total <span className="price"><b>{/* TOTAL PRICE -- pass total from cart component as a prop and apply here */}</b></span></p>
           </div>
         </div>
   </div>

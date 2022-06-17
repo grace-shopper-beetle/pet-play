@@ -6,7 +6,8 @@ class Confirmation extends Component {
         return (
             <div>
                 <title>Order Confirmation #01234</title>
-                <p>Thank you for your order!</p>
+                <h2>Thank you for your order!</h2>
+                <p>Your order will arrive in 5-7 business days. Please check your e-Meow for the tracking number. Have a Wooferful day!</p>
             </div>
         )
     }
