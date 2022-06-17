@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User, Product} } = require('../server/db')
+const {db, models: {User, Product, Order} } = require('../server/db')
 
 const users = [{
   username: "rsaywell0",
@@ -176,7 +176,6 @@ const products = [{
 
 
 
-
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -195,8 +194,32 @@ async function seed() {
     return Product.create(product);
   }))
 
-  console.log(`seeded ${seedUsers.length} users`)
-  console.log(`seeded ${seedProducts.length} products`)
+  // Creating Orders
+  const user1 = await User.findByPk(1);
+  const user2 = await User.findByPk(2);
+  const user3 = await User.findByPk(3);
+
+  await user1.createOrder({isOpen: true});
+  await user2.createOrder({isOpen: true});
+  await user1.createOrder({isOpen: false});
+  await user2.createOrder({isOpen: false});
+
+  // Adding Products to Orders
+  const order1 = await Order.findByPk(1);
+  const order2 = await Order.findByPk(2);
+  const order3 = await Order.findByPk(3);
+  const order4 = await Order.findByPk(4);
+
+  const product1 = await Product.findByPk(1);
+  const product2 = await Product.findByPk(3);
+  const product3 = await Product.findByPk(5);
+  const product4 = await Product.findByPk(7);
+
+  await order1.setProducts([product1, product2, product3, product4]);
+  await order2.setProducts([product2, product3, product4]);
+  await order3.setProducts([product1]);
+  await order4.setProducts([product1, product4]);
+
   console.log(`seeded successfully`)
 }
 
