@@ -16,6 +16,13 @@ class GuestCheckout extends Component {
   }
 
   render() {
+    console.log(localStorage.getItem('cart'))
+    const localStorageCart = JSON.parse(localStorage.getItem('cart'));
+    const guestCartTotal = localStorageCart.reduce((sum, price) => {
+      return sum + price
+      }, 0
+  ) // guest cart total needs to be parsed properly
+  const cartQuantity = localStorageCart.length
     return (
   <div className="row">
     <div className="col-75">
@@ -93,12 +100,18 @@ class GuestCheckout extends Component {
             <h4>Cart
               <span className="price">
                 <i className="fa fa-shopping-cart"></i>
-                <b>{/* CART QUANTITY */}</b>
+                <b>{cartQuantity}</b>
               </span>
             </h4>
-            {/* MAP THROUGH PRODUCTS IN CART FOR THE USER WITH THE PRICE HERE */}
+            {/* {localStorageCart.map(item => {
+              return (
+                <div>
+                  <h4>{localStorageCart.}</h4>
+                </div>
+              )
+            })} */}
             <hr />
-            <p>Total <span className="price"><b>{/* TOTAL PRICE -- pass total from cart component as a prop and apply here */}</b></span></p>
+            <p>Total <span className="price"><b>{guestCartTotal}</b></span></p>
           </div>
         </div>
   </div>
@@ -106,10 +119,14 @@ class GuestCheckout extends Component {
   } 
 }
 
+// const mapState = (state) => {
+
+// }
 // const mapDispatch = (dispatch) => {
 //   return {
-//     checkout: (guest) => dispatch(checkoutGuest(guest))
+
+//     // checkout: (guest) => dispatch(checkoutGuest(guest))
 //   }
 // }
-// connect(null, mapDispatch)
+// connect(mapState, null)
 export default (GuestCheckout)
