@@ -16,13 +16,17 @@ class GuestCheckout extends Component {
   }
 
   render() {
-    console.log(localStorage.getItem('cart'))
     const localStorageCart = JSON.parse(localStorage.getItem('cart'));
-    const guestCartTotal = localStorageCart.reduce((sum, price) => {
+    console.log(localStorageCart)
+    const guestCartTotal = localStorageCart.reduce((sum, itemPrice) => {
+      const price = itemPrice.price;
       return sum + price
       }, 0
-  ) // guest cart total needs to be parsed properly
-  const cartQuantity = localStorageCart.length
+  )
+  const cartQuantity = localStorageCart.reduce((previouQuantity, item) => {
+    const itemQuantity = item.quantity;
+    return previouQuantity + itemQuantity 
+  }, 0) 
     return (
   <div className="row">
     <div className="col-75">
@@ -103,15 +107,15 @@ class GuestCheckout extends Component {
                 <b>{cartQuantity}</b>
               </span>
             </h4>
-            {/* {localStorageCart.map(item => {
+            {localStorageCart.map(item => {
               return (
-                <div>
-                  <h4>{localStorageCart.}</h4>
-                </div>
+                <p key={item.id}>{item.name} <span className="price">{`$${item.price}`}</span></p>
+                // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
+                // Temporarily removed anchor tag because unsure of how to implement with localStorage
               )
-            })} */}
+            })}
             <hr />
-            <p>Total <span className="price"><b>{guestCartTotal}</b></span></p>
+            <p>Total <span className="price"><b>{`$${guestCartTotal}`}</b></span></p>
           </div>
         </div>
   </div>
