@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom' 
 
 //**'Go to Checkout' button from cart leads to this form page */
 
@@ -94,7 +95,7 @@ class GuestCheckout extends Component {
               <label>
                 <input type="checkbox" checked="checked" name="sameadr" /> Shipping address same as billing
               </label>
-              <button type="submit" className="btn">Place Your Order</button>
+              <Link to={'/confirmation'}><button type="submit" className="btn">Place Your Order</button></Link>
         </form>
       </div>
     </div>
