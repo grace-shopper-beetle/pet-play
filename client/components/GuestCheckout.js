@@ -16,6 +16,7 @@ class GuestCheckout extends Component {
     // this.props.checkout(this.state);
   }
 
+
   render() {
     const localStorageCart = JSON.parse(localStorage.getItem('cart'));
     console.log(localStorageCart)
@@ -93,7 +94,7 @@ class GuestCheckout extends Component {
               
           </div>
               <label>
-                <input type="checkbox" checked="checked" name="sameadr" /> Shipping address same as billing
+                <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billing
               </label>
               <Link to={'/confirmation'}><button type="submit" className="btn">Place Your Order</button></Link>
         </form>
@@ -105,12 +106,12 @@ class GuestCheckout extends Component {
             <h4>Cart
               <span className="price">
                 <i className="fa fa-shopping-cart"></i>
-                <b>{cartQuantity}</b>
+                <b>Total Quantity: {cartQuantity}</b>
               </span>
             </h4>
             {localStorageCart.map(item => {
               return (
-                <p key={item.id}>{item.name} <span className="price">{`$${item.price}`}</span></p>
+                <p key={item.id}>{`${item.name} x ${item.quantity}`}<span className="price">{`$${item.price}`}</span></p>
                 // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
                 // Temporarily removed anchor tag because unsure of how to implement with localStorage
               )
