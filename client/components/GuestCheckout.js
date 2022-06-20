@@ -1,55 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom' 
 
 //**'Go to Checkout' button from cart leads to this form page */
 
 function GuestCheckout() {
-  // constructor() {
-  //   super();
-
-  //   this.handleSubmit = this.handleSubmit.bind(this)
-  //   this.removeFromCart = this.removeFromCart.bind(this)
-  // }
-
+  const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')));
+    
   const handleSubmit = (evt) => {
     evt.preventDefault()
-    // this.props.checkout(this.state);
+
   }
   const removeFromCart = (productId) => {
     const cart = JSON.parse(localStorage.getItem('cart'));
     let updatedCart = cart.filter(item => item.id !== productId);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
+    setCart([...cart])
   }
-
-  // render() {
-    const localStorageCart = JSON.parse(localStorage.getItem('cart'));
-    console.log(localStorageCart)
-    const guestCartTotal = localStorageCart.reduce((sum, itemPrice) => {
-      const price = itemPrice.price * itemPrice.quantity;
-      return sum + price
-      }, 0
-  )
-  const cartQuantity = localStorageCart.reduce((previousQuantity, item) => {
+  // not sure why page doesn't re-render with updated state when renaming guestCart to cart. Would like code to be DRY.
+  const guestCart = JSON.parse(localStorage.getItem('cart'));
+  const guestCartTotal = guestCart.reduce((sum, itemPrice) => {
+    const price = itemPrice.price * itemPrice.quantity;
+    return sum + price
+  }, 0)
+  const cartQuantity = guestCart.reduce((previousQuantity, item) => {
     const itemQuantity = item.quantity;
     return previousQuantity + itemQuantity 
   }, 0) 
-    return (
-  <div className="row">
-    <div className="col-75">
-      <h1>Checkout</h1>
-      <div>
-        <h2>Your Cart</h2>
-          {localStorageCart.map(item => {
-            return (
-              <div key={item.id}>
-                <img src={item.image}/>
-                <h4>{item.name} <span>{`$${item.price}`}</span></h4> {/* add drop down of quantity here */} 
-                <button onClick={() => removeFromCart(item.id)}>Remove</button>
-              </div>
-            )
-          })
-          }
+
+
+  return (
+    <div className="row">
+      <div className="col-75">
+        <h1>Checkout</h1>
+        <div>
+          <h2>Your Cart</h2>
+            {guestCart.map(item => {
+              return (
+                <div key={item.id}>
+                  <img src={item.image}/>
+                  <h4>{item.name} <span>{`$${item.price}`}</span></h4> {/* add drop down of quantity here */} 
+                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                </div>
+              )
+            })
+            }
       </div>
       <div className="container">
         <form action="/action_page.php" onSubmit = {handleSubmit} >
@@ -104,8 +99,7 @@ function GuestCheckout() {
                     </div>
                   </div>
                 </div>
-      
-              
+
           </div>
               <label>
                 <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billing
@@ -123,7 +117,7 @@ function GuestCheckout() {
                 <b>Total Quantity: {cartQuantity}</b>
               </span>
             </h4>
-            {localStorageCart.map(item => {
+            {guestCart.map(item => {
               return (
                   <p key={item.id}>{`${item.name} x ${item.quantity}`}<span className="price">{`$${item.price * item.quantity}`}</span></p>
                 // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
@@ -134,10 +128,9 @@ function GuestCheckout() {
             <p>Total <span className="price"><b>{`$${guestCartTotal}`}</b></span></p>
           </div>
         </div>
-  </div>
+    </div>
     )
-  } 
-// }
+} 
 
 // const mapState = (state) => {
 
