@@ -185,19 +185,18 @@ async function seed() {
   console.log('db synced!')
 
   // Creating Users
-  const seedUsers = await Promise.all(users.map(user => {
+  await Promise.all(users.map(user => {
     return User.create(user);
   }))
 
   //Creating Products
-  const seedProducts = await Promise.all(products.map(product => {
+  await Promise.all(products.map(product => {
     return Product.create(product);
   }))
 
   // Creating Orders
   const user1 = await User.findByPk(1);
   const user2 = await User.findByPk(2);
-  const user3 = await User.findByPk(3);
 
   await user1.createOrder({isOpen: true});
   await user2.createOrder({isOpen: true});

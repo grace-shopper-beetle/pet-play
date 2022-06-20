@@ -52,10 +52,10 @@ export const removeFromCart = (orderId, productId) => {
     }
 }
 
-export const changeQuantity = (orderId, productId) => {
+export const changeQuantity = (item) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.put(`/api/orders/cart/quantity/${orderId}/${productId}`);
+            const {data} = await axios.put('/api/orders/cart/quantity', item);
             dispatch(_changeQuantity(data));
         }
         catch (err) {

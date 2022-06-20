@@ -19,14 +19,17 @@ router.get('/cart/:id', async (req, res, next) => {
   }
 })
 
-// PUT /api/orders/cart/quantity/:orderId/:productId
-router.put('/cart/quantity/:orderId/:productId', async (req, res, next) => {
+// PUT /api/orders/cart/quantity
+router.put('/cart/quantity', async (req, res, next) => {
   try {
     const orderProduct = await Order_Product.findOne({ where: {
-      orderId: req.params.orderId,
-      productId: req.params.productId
+      orderId: req.body.orderId,
+      productId: req.body.productId
     }});
-    res.json(await orderProduct.update(req.body));
+    await orderProduct.update({quantity: req.body.quantity});
+    const order = await Order.findByPk(req.body.orderId);
+    const cart = await order.getProducts();
+    res.json(cart);
   }
   catch(err) {
     next(err);
