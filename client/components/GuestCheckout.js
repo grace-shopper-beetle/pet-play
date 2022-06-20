@@ -1,5 +1,5 @@
-import React, { Component, useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+// import { connect } from 'react-redux';
 import { Link } from 'react-router-dom' 
 
 //**'Go to Checkout' button from cart leads to this form page */
@@ -9,21 +9,19 @@ function GuestCheckout() {
     
   const handleSubmit = (evt) => {
     evt.preventDefault()
-
   }
+
   const removeFromCart = (productId) => {
-    const cart = JSON.parse(localStorage.getItem('cart'));
     let updatedCart = cart.filter(item => item.id !== productId);
     localStorage.setItem('cart', JSON.stringify(updatedCart));
-    setCart([...cart])
+    setCart([...updatedCart]) // needs to be a copy or else an undefined product renders after removing all products
   }
-  // not sure why page doesn't re-render with updated state when renaming guestCart to cart. Would like code to be DRY.
-  const guestCart = JSON.parse(localStorage.getItem('cart'));
-  const guestCartTotal = guestCart.reduce((sum, itemPrice) => {
+
+  const guestCartTotal = cart.reduce((sum, itemPrice) => {
     const price = itemPrice.price * itemPrice.quantity;
     return sum + price
   }, 0)
-  const cartQuantity = guestCart.reduce((previousQuantity, item) => {
+  const cartQuantity = cart.reduce((previousQuantity, item) => {
     const itemQuantity = item.quantity;
     return previousQuantity + itemQuantity 
   }, 0) 
@@ -35,7 +33,7 @@ function GuestCheckout() {
         <h1>Checkout</h1>
         <div>
           <h2>Your Cart</h2>
-            {guestCart.map(item => {
+            {cart.map(item => {
               return (
                 <div key={item.id}>
                   <img src={item.image}/>
@@ -117,7 +115,7 @@ function GuestCheckout() {
                 <b>Total Quantity: {cartQuantity}</b>
               </span>
             </h4>
-            {guestCart.map(item => {
+            {cart.map(item => {
               return (
                   <p key={item.id}>{`${item.name} x ${item.quantity}`}<span className="price">{`$${item.price * item.quantity}`}</span></p>
                 // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
@@ -132,14 +130,4 @@ function GuestCheckout() {
     )
 } 
 
-// const mapState = (state) => {
-
-// }
-// const mapDispatch = (dispatch) => {
-//   return {
-
-//     // checkout: (guest) => dispatch(checkoutGuest(guest))
-//   }
-// }
-// connect(mapState, null)
 export default (GuestCheckout)
