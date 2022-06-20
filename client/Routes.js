@@ -7,7 +7,9 @@ import Home from './components/Home';
 import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import AllUsers from './components/AllUsers';
+import AdminProductView from './components/AdminProductView';
 import {me} from './store'
+import EditProduct from './components/EditProduct';
 
 /**
  * COMPONENT
@@ -25,8 +27,10 @@ class Routes extends Component {
         {isLoggedIn ? (
           <Switch>
             <Route path="/home" component={Home} />
-            <Route path="/users" component={AllUsers} />
-            {/* <Redirect to="/home" /> */}
+            <Route path="/admin/users" component={AllUsers} />
+            <Route path="/admin/products/:id" component={EditProduct} />
+            <Route path="/admin/products" exact component={AdminProductView} />
+            <Redirect to="/home" />
           </Switch>
         ) : (
           <Switch>
@@ -36,6 +40,7 @@ class Routes extends Component {
             <Route path="/products" exact component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
             <Route path="/cart" component={Cart} />
+            <Route path="/users" component={Login} />
           </Switch>
         )}
       </div>
