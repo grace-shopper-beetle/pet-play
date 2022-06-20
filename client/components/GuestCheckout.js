@@ -4,30 +4,35 @@ import { Link } from 'react-router-dom'
 
 //**'Go to Checkout' button from cart leads to this form page */
 
-class GuestCheckout extends Component {
-  constructor() {
-    super();
+function GuestCheckout() {
+  // constructor() {
+  //   super();
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
+  //   this.handleSubmit = this.handleSubmit.bind(this)
+  //   this.removeFromCart = this.removeFromCart.bind(this)
+  // }
 
-  handleSubmit(evt) {
+  const handleSubmit = (evt) => {
     evt.preventDefault()
     // this.props.checkout(this.state);
   }
+  const removeFromCart = (productId) => {
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    let updatedCart = cart.filter(item => item.id !== productId);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  }
 
-
-  render() {
+  // render() {
     const localStorageCart = JSON.parse(localStorage.getItem('cart'));
     console.log(localStorageCart)
     const guestCartTotal = localStorageCart.reduce((sum, itemPrice) => {
-      const price = itemPrice.price;
+      const price = itemPrice.price * itemPrice.quantity;
       return sum + price
       }, 0
   )
-  const cartQuantity = localStorageCart.reduce((previouQuantity, item) => {
+  const cartQuantity = localStorageCart.reduce((previousQuantity, item) => {
     const itemQuantity = item.quantity;
-    return previouQuantity + itemQuantity 
+    return previousQuantity + itemQuantity 
   }, 0) 
     return (
   <div className="row">
@@ -35,10 +40,19 @@ class GuestCheckout extends Component {
       <h1>Checkout</h1>
       <div>
         <h2>Your Cart</h2>
-        {/* <p>*list cart items here*</p> */}
+          {localStorageCart.map(item => {
+            return (
+              <div key={item.id}>
+                <img src={item.image}/>
+                <h4>{item.name} <span>{`$${item.price}`}</span></h4> {/* add drop down of quantity here */} 
+                <button onClick={() => removeFromCart(item.id)}>Remove</button>
+              </div>
+            )
+          })
+          }
       </div>
       <div className="container">
-        <form action="/action_page.php" onSubmit = {this.handleSubmit} >
+        <form action="/action_page.php" onSubmit = {handleSubmit} >
           <div className="row">
                 <div className="col-50">
                   <h3>Billing Address</h3>
@@ -103,7 +117,7 @@ class GuestCheckout extends Component {
       
         <div className="col-25">
           <div className="container">
-            <h4>Cart
+            <h4>Cart Summary
               <span className="price">
                 <i className="fa fa-shopping-cart"></i>
                 <b>Total Quantity: {cartQuantity}</b>
@@ -111,7 +125,7 @@ class GuestCheckout extends Component {
             </h4>
             {localStorageCart.map(item => {
               return (
-                <p key={item.id}>{`${item.name} x ${item.quantity}`}<span className="price">{`$${item.price}`}</span></p>
+                  <p key={item.id}>{`${item.name} x ${item.quantity}`}<span className="price">{`$${item.price * item.quantity}`}</span></p>
                 // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
                 // Temporarily removed anchor tag because unsure of how to implement with localStorage
               )
@@ -123,7 +137,7 @@ class GuestCheckout extends Component {
   </div>
     )
   } 
-}
+// }
 
 // const mapState = (state) => {
 
