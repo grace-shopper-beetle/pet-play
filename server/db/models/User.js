@@ -73,6 +73,14 @@ const User = db.define('user', {
   },
   phone: {
     type: Sequelize.STRING(10)
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    },
+    defaultValue: false
   }
 })
 

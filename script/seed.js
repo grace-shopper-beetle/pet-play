@@ -12,7 +12,8 @@ const users = [{
   city:  "San Antonio",
   state:  "TX",
   zipcode:  "78245",
-  phone:  "8306531237"
+  phone:  "8306531237",
+  isAdmin: true
 }, {
   username: "gsigfrid1",
   password: "bKwXocG",
@@ -23,7 +24,8 @@ const users = [{
   city: "Syracuse",
   state: "NY",
   zipcode: "13205",
-  phone: "3151028276"
+  phone: "3151028276",
+  isAdmin: false
 }, {
   username: "mrichens2",
   password: "0SLeNff6kDQm",
@@ -34,7 +36,8 @@ const users = [{
   city: "Tallahassee",
   state: "FL",
   zipcode: "32399",
-  phone: "8501565111"
+  phone: "8501565111",
+  isAdmin: false
 }, {
   username: "tcheley3",
   password: "kOGVvN",
@@ -45,8 +48,9 @@ const users = [{
   city: "Norfolk",
   state: "VA",
   zipcode: "23504",
-  phone: "7572648004"},
-{
+  phone: "7572648004",
+  isAdmin: false
+}, {
   username: "ddumelow4",
   password: "KMUz08UjBg72",
   email: "ddumelow4@instagram.com",
@@ -56,7 +60,8 @@ const users = [{
   city: "Tampa",
   state: "FL",
   zipcode: "33620",
-  phone: "8132641057"
+  phone: "8132641057",
+  isAdmin: false
 }, {
   username: "ssussex5",
   password: "JducKficr5",
@@ -67,7 +72,8 @@ const users = [{
   city: "Omaha",
   state: "NE",
   zipcode: "68117",
-  phone: "4024334605"
+  phone: "4024334605",
+  isAdmin: false
 }, {
   username: "galcoran6",
   password: "9WaIVbvpia",
@@ -78,7 +84,8 @@ const users = [{
   city: "Kansas City",
   state: "MO",
   zipcode: "64199",
-  phone: "8164541146"
+  phone: "8164541146",
+  isAdmin: false
 }, {
   username: "apendall7",
   password: "xW6DMnqBC",
@@ -88,7 +95,8 @@ const users = [{
   street_address: "7 Garrison Point",
   city: "Harrisburg",
   state: "PA",zipcode: "17121",
-  phone: "7171126947"
+  phone: "7171126947",
+  isAdmin: false
 }, {
   username: "hdossett8",
   password: "2FkO1zO7D13",
@@ -99,7 +107,8 @@ const users = [{
   city: "Washington",
   state: "DC",
   zipcode: "20268",
-  phone: "2021910253"
+  phone: "2021910253",
+  isAdmin: false
 }, {
   username: "mberkely9",
   password: "WLT0Pn",
@@ -110,7 +119,8 @@ const users = [{
   city: "Pittsburgh",
   state: "PA",
   zipcode: "15215",
-  phone: "4126820328"
+  phone: "4126820328",
+  isAdmin: false
 }]
 
 const products = [{
