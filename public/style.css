@@ -72,8 +72,28 @@ label {
 
 .icon-container {
   margin-bottom: 20px;
-  padding: 7px 0;
+  padding: 5px 0;
   font-size: 24px;
+}
+
+.fa-cc-visa {
+  color: navy;
+  padding-right: 5px;
+}
+
+.fa-cc-amex {
+  color: rgb(33, 151, 224);
+  padding-right: 5px;
+}
+
+.fa-cc-mastercard {
+  color: orangered;
+  padding-right: 5px;
+}
+
+.fa-cc-discover {
+  color: orange;
+  padding-right: 5px;
 }
 
 .btn {

@@ -2,24 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom' 
 
-//**'Go to Checkout' button from cart leads to this form page */
+//**'Proceed to Checkout' button from cart leads to this form page */
 
 class GuestCheckout extends Component {
   constructor() {
     super();
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit(evt) {
     evt.preventDefault()
-    // this.props.checkout(this.state);
+  }
+
+  handleChange() {
+    console.log('the checkbox was toggled')
   }
 
 
   render() {
-    const localStorageCart = JSON.parse(localStorage.getItem('cart'));
-    console.log(localStorageCart)
+    const localStorageCart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log("this is local storage", localStorageCart)
     const guestCartTotal = localStorageCart.reduce((sum, itemPrice) => {
       const price = itemPrice.price;
       return sum + price
@@ -33,10 +37,7 @@ class GuestCheckout extends Component {
   <div className="row">
     <div className="col-75">
       <h1>Checkout</h1>
-      <div>
-        <h2>Your Cart</h2>
-        {/* <p>*list cart items here*</p> */}
-      </div>
+      <></>
       <div className="container">
         <form action="/action_page.php" onSubmit = {this.handleSubmit} >
           <div className="row">
@@ -50,17 +51,10 @@ class GuestCheckout extends Component {
                   <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" />
                   <label htmlFor="city"><i className="fa fa-institution"></i> City</label>
                   <input type="text" id="city" name="city" placeholder="New York" />
-      
-                  <div className="row">
-                    <div className="col-50">
-                      <label htmlFor="state">State</label>
-                      <input type="text" id="state" name="state" placeholder="NY" />
-                    </div>
-                    <div className="col-50">
-                      <label htmlFor="zip">Zip</label>
-                      <input type="text" id="zip" name="zip" placeholder="10001" />
-                    </div>
-                  </div>
+                  <label htmlFor="state">State</label>
+                  <input type="text" id="state" name="state" placeholder="NY" />
+                  <label htmlFor="zip">Zip</label>
+                  <input type="text" id="zip" name="zip" placeholder="10001" />
                 </div>
       
                 <div className="col-50">
@@ -78,23 +72,16 @@ class GuestCheckout extends Component {
                   <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" />
                   <label htmlFor="expmonth">Exp Month</label>
                   <input type="text" id="expmonth" name="expmonth" placeholder="September" />
-      
-                  <div className="row">
-                    <div className="col-50">
-                      <label htmlFor="expyear">Exp Year</label>
-                      <input type="text" id="expyear" name="expyear" placeholder="2018" />
-                    </div>
-                    <div className="col-50">
-                      <label htmlFor="cvv">CVV</label>
-                      <input type="text" id="cvv" name="cvv" placeholder="352" />
-                    </div>
-                  </div>
+                  <label htmlFor="expyear">Exp Year</label>
+                  <input type="text" id="expyear" name="expyear" placeholder="2018" />
+                  <label htmlFor="cvv">CVV</label>
+                  <input type="text" id="cvv" name="cvv" placeholder="352" />
                 </div>
       
               
           </div>
               <label>
-                <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billing
+                <input type="checkbox" name="sameadr" onChange = {this.handleChange} /> Shipping address same as billing
               </label>
               <Link to={'/confirmation'}><button type="submit" className="btn">Place Your Order</button></Link>
         </form>
@@ -106,7 +93,7 @@ class GuestCheckout extends Component {
             <h4>Cart
               <span className="price">
                 <i className="fa fa-shopping-cart"></i>
-                <b>Total Quantity: {cartQuantity}</b>
+                <b>  {cartQuantity}</b>
               </span>
             </h4>
             {localStorageCart.map(item => {
@@ -125,14 +112,4 @@ class GuestCheckout extends Component {
   } 
 }
 
-// const mapState = (state) => {
-
-// }
-// const mapDispatch = (dispatch) => {
-//   return {
-
-//     // checkout: (guest) => dispatch(checkoutGuest(guest))
-//   }
-// }
-// connect(mapState, null)
 export default (GuestCheckout)

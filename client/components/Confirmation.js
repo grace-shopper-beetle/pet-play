@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 
+//*"Place Your Order" from Checkout leads to this page
+
 class Confirmation extends Component {
     
     render() {
@@ -12,22 +14,6 @@ class Confirmation extends Component {
         )
     }
 }
-
-// <!DOCTYPE html>
-// <html>
-//   <head>
-//     <meta charset='utf-8'>
-//     <meta name='viewport' content='width=device-width initial-scale=1.0'>
-//     <title>Order Confirmation #01234</title>
-//     <link rel="stylesheet" href="/style.css" />
-//     <script defer src="/bundle.js"></script>
-//   </head>
-//   <body>
-//     <div>
-//       <p>Thank you for your order!</p>
-//     </div>
-//   </body>
-// </html>
 
 export default Confirmation;
 
