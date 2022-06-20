@@ -9,6 +9,9 @@ import { changeQuantity, fetchCart, removeFromCart } from '../store/cart'
 class Cart extends Component {
     constructor() {
         super();
+        this.state = {
+            cart: []
+        }
         this.handleDelete = this.handleDelete.bind(this);
         this.handleLocalStorageDelete = this.handleLocalStorageDelete.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -18,6 +21,8 @@ class Cart extends Component {
     componentDidMount() {
         if (this.props.isLoggedIn) {
             this.props.fetchCart(this.props.auth.id);
+        } else {
+            this.setState({cart: JSON.parse(localStorage.getItem('cart'))});
         }
     }
 
@@ -32,7 +37,15 @@ class Cart extends Component {
     }
 
     handleLocalStorageDelete(productId) {
-        localStorage.cart.filter(items => items.id !== productId);
+        const localStorageCart = JSON.parse(localStorage.getItem('cart'));
+        if(localStorageCart.length > 1) {
+            let newCart = localStorageCart.filter(item => item.id !== productId);
+            localStorage.setItem('cart', JSON.stringify(newCart));
+            this.setState({cart: newCart});
+        } else {
+            localStorage.setItem('cart', JSON.stringify([]))
+            this.setState({cart: []});
+        }
     }
 
     handleChange(orderId, productId) {
@@ -41,15 +54,18 @@ class Cart extends Component {
     }
 
     handleLocalStorageChange(productId) {
-        localStorage.cart.map(item => {
-            if(item.id === productId) {
-                item.quantity = event.target.value;
+        const localStorageCart = JSON.parse(localStorage.getItem('cart'));
+        let updatedCart = localStorageCart.map(product => {
+            if(product.id === productId) {
+                product.quantity = event.target.value;
             }
+            return product;
         })
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        this.setState({cart: updatedCart});
     }
 
     render() {
-        const localStorageCart = JSON.parse(localStorage.getItem('cart'));
         return (
         <div>
             <h1>Your Cart</h1>
@@ -86,11 +102,11 @@ class Cart extends Component {
                 )
              ) : (
                 // User is not logged in
-                localStorageCart ? (
+                localStorage.getItem('cart') ? (
                     // There are items in the cart
                     <div>
                         <div>
-                        {localStorageCart.map(item => {
+                        {this.state.cart.map(item => {
                             return (
                                 <div key={item.id}>
                                     <img src={item.image} />
@@ -106,7 +122,7 @@ class Cart extends Component {
                         })}
                         </ div>
                         <div>
-                            <p>Total: {`$${(localStorageCart.reduce((sum, item) => (sum + (item.price * item.quantity)), 0))/100}`}</p>
+                            <p>Total: {`$${(this.state.cart.reduce((sum, item) => (sum + (item.price * item.quantity)), 0))/100}`}</p>
                             <button type='button'><Link to='/checkout'>Proceed to Checkout</Link></button>
                         </div>
                     </div>
