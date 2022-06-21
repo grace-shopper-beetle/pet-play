@@ -8,6 +8,8 @@ import SingleProduct from './components/SingleProduct';
 import Cart from './components/Cart';
 import AllUsers from './components/AllUsers';
 import AdminProductView from './components/AdminProductView';
+import GuestCheckout from './components/GuestCheckout';
+import Confirmation from './components/Confirmation';
 import {me} from './store'
 import EditProduct from './components/EditProduct';
 import AddProduct from './components/AddProduct';
@@ -27,6 +29,12 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/products" exact component={AllProducts} />
+            <Route path="/products/:id" component={SingleProduct} />
+            <Route path="/cart" component={Cart} />
             <Route path="/home" component={Home} />
             <Route path="/admin/users" component={AllUsers} />
             <Route path="/admin/products" exact component={AdminProductView} />
@@ -43,6 +51,8 @@ class Routes extends Component {
             <Route path="/products/:id" component={SingleProduct} />
             <Route path="/cart" component={Cart} />
             <Route path="/users" component={Login} />
+            <Route path="/checkout" component={GuestCheckout} />
+            <Route path="/confirmation" component={Confirmation} />
           </Switch>
         )}
       </div>
