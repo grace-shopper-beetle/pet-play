@@ -4,6 +4,7 @@ import axios from 'axios'
 const GET_CART = 'GET_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
+const CLOSE_CART = 'CLOSE_CART';
 
 // ACTION CREATOR
 export const getCart = (cartItems) => {
@@ -24,6 +25,12 @@ export const _changeQuantity = (cartItems) => {
     return {
         type: CHANGE_QUANTITY,
         cartItems
+    }
+}
+
+export const _closeCart = () => {
+    return {
+        type: CLOSE_CART
     }
 }
 
@@ -64,6 +71,18 @@ export const changeQuantity = (item) => {
     }
 }
 
+export const closeCart = (orderId, history) => {
+    return async (dispatch) => {
+        try {
+            await axios.put(`/api/orders/cart/${orderId}`);
+            dispatch(_closeCart());
+            history.push('/confirmation');
+        } catch (err) {
+            console.log(err);
+        }
+    }
+}
+
 // REDUCER
 export default function cartReducer(state = [], action) {
     switch(action.type) {
@@ -73,6 +92,8 @@ export default function cartReducer(state = [], action) {
             return action.cartItems;
         case CHANGE_QUANTITY:
             return action.cartItems;
+        case CLOSE_CART:
+            return [];
         default:
             return state
     }

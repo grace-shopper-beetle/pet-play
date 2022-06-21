@@ -50,3 +50,14 @@ router.put('/cart/:orderId/:productId', async (req, res, next) => {
   }
 })
 
+// PUT /api/orders/:orderId
+router.put('/cart/:orderId', async (req, res, next) => {
+  try {
+    const order = await Order.findByPk(req.params.orderId);
+    await order.update({isOpen: false});
+    res.json(order);
+  }
+  catch(err) {
+    next(err);
+  }
+})
