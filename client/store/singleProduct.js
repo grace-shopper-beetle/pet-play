@@ -5,6 +5,7 @@ import axios from 'axios'
  */
 
 const GET_SINGLE_PRODUCT = 'GET_SINGLE_PRODUCT';
+const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 
 /**
  * ACTION CREATORS
@@ -17,6 +18,13 @@ const getSingleProduct = (singleProduct) => (
   }
 )
 
+export const _updateProduct = (singleProduct) => {
+  return {
+    type: UPDATE_PRODUCT,
+    singleProduct
+  }
+}
+
 /**
  * THUNK CREATORS
  */
@@ -27,12 +35,26 @@ export const fetchSingleProduct = (id) => {
   }
 }
 
+export const updateProduct = (product, history) => {
+  return async (dispatch) => {
+    try {
+      const {data} = await axios.put(`/api/products/${product.id}`, product);
+      dispatch(_updateProduct(data));
+      history.push('/admin/products');
+    } catch(err) {
+      console.log(err);
+    }
+  }
+}
+
 /**
  * REDUCER
  */
 export default function(state = {}, action) {
   switch (action.type) {
     case GET_SINGLE_PRODUCT:
+      return action.singleProduct;
+    case UPDATE_PRODUCT:
       return action.singleProduct;
     default:
       return state
