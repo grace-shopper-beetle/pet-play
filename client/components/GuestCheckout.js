@@ -97,13 +97,14 @@ class GuestCheckout extends Component {
             </h4>
             {localStorageCart.map(item => {
               return (
-                <p key={item.id}>{`${item.name} x ${item.quantity}`}<span className="price">{`$${item.price}`}</span></p>
+                <p key={item.id}>{`${item.product_name} x ${item.quantity}`}<span className="price">{`$${item.price/100}`}</span></p>
                 // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
                 // Temporarily removed anchor tag because unsure of how to implement with localStorage
               )
             })}
             <hr />
             <p>Total <span className="price"><b>{`$${guestCartTotal}`}</b></span></p>
+            <Link to={'/cart'}><button type='button'>Return to Cart</button></Link>
           </div>
         </div>
   </div>

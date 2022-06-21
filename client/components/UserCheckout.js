@@ -77,6 +77,7 @@ class UserCheckout extends Component {
             })}
             <hr />
             <p>Total <span className="price"><b>{`$${(this.props.cart.reduce((sum, item) => (sum + (item.price * item.order_product.quantity)), 0))/100}`}</b></span></p>
+            <button type='button'><Link to={'/cart'}>Return to Cart</Link></button>
           </div>
         </div>
   </div>
