@@ -25,6 +25,7 @@ class AdminProductView extends Component {
           {this.props.isLoggedIn && this.props.auth.isAdmin ? (
             <div id="products" className="column">
               <h2 className="section-title">All Products</h2>
+              <button type='button'><Link to={'/admin/products/add'}>Add Product</Link></button>
               <ul className="container">
                 {products && products.map((product) => (
                   <div className="product" key={product.id}>

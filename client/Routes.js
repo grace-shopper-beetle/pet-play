@@ -10,6 +10,7 @@ import AllUsers from './components/AllUsers';
 import AdminProductView from './components/AdminProductView';
 import {me} from './store'
 import EditProduct from './components/EditProduct';
+import AddProduct from './components/AddProduct';
 
 /**
  * COMPONENT
@@ -28,8 +29,9 @@ class Routes extends Component {
           <Switch>
             <Route path="/home" component={Home} />
             <Route path="/admin/users" component={AllUsers} />
-            <Route path="/admin/products/:id" component={EditProduct} />
             <Route path="/admin/products" exact component={AdminProductView} />
+            <Route path="/admin/products/add" component={AddProduct} />
+            <Route path="/admin/products/:id" component={EditProduct} />
             <Redirect to="/home" />
           </Switch>
         ) : (
