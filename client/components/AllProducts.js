@@ -19,16 +19,21 @@ class AllProducts extends Component {
         <div id="products" className="column">
           <h2 className="section-title">All Products</h2>
           <ul className="container">
-            {products && products.map((product) => (
-              <div className="product" key={product.id}>
-                <Link to={`/products/${product.id}`}>
-                  <h3>{product.product_name}</h3>
-                  <img src={product.image} />
-                  <p>{`$${product.price/100}`}</p>
-                </Link>
-                <hr />
-              </div>
-            ))}
+            <div className="row">
+              {products && products.map((product) => (
+                <div className="column">
+                    <div className="card" key={product.id}>
+                      <Link to={`/products/${product.id}`}>
+                        <img src={product.image} />
+                        <h3>{product.product_name}</h3>
+                        <p>{`$${product.price/100}`}</p>
+                        <p><button type='button'>Add to Cart</button></p>
+                      </Link>
+                      <hr />
+                    </div>
+                </div>
+              ))}
+            </div>
           </ul>
         </div>
       );

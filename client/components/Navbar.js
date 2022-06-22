@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn, isAdmin}) => (
-  <div>
+  <div className= "navbar">
     <h1>Pet Play</h1>
     <nav>
       {isLoggedIn && isAdmin ? (
