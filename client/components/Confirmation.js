@@ -12,11 +12,7 @@ class Confirmation extends Component {
                 justifyContent: 'center',
                 height: '50vh',
               }}>
-            <title>Order Confirmation #01234</title>
-                <h2>Thank you for your order!</h2>
-                <body>
-                    <p>Your order will arrive in 5-7 business days. Please check your e-Meow for the tracking number. Have a Wooferful day!</p>
-                </body>
+                <h2>Thank you for your order! Your order will arrive in 5-7 business days. Please check your e-Meow for the tracking number. Have a Wooferful day!</h2>
             </div>
         )
     }
