@@ -20,7 +20,7 @@ export const _addToCart = (cartItems) => {
         type: ADD_TO_CART,
         cartItems
     }
-} 
+}
 
 export const _removeFromCart = (cartItems) => {
     return {

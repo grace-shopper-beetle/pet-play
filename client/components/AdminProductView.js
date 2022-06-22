@@ -39,7 +39,7 @@ class AdminProductView extends Component {
                           <p>{product.description}</p>
                         </div>
                         <div className="edit">
-                          <button type='button'><Link to={`/admin/products/${product.id}`}>Edit Product</Link></button>
+                        <Link to={`/admin/products/${product.id}`}><button type='button'>Edit Product</button></Link>
                         </div>
                         <button type='button' onClick={() => this.handleDelete(product)}>Delete Product</button>
                         <hr />
@@ -47,7 +47,7 @@ class AdminProductView extends Component {
                     </div>
                   ))}
                 </div>
-                
+
               </ul>
             </div>
           ): (
