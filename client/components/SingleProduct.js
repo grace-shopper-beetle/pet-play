@@ -32,12 +32,12 @@ class SingleProduct extends React.Component {
   }
 
   handleAddToCart(orderId, productId, quantity) {
-    // event.preventDefault();
+    event.preventDefault();
     // console.log('orderId', orderId)
     // console.log('productId', productId)
     // console.log('quantity', quantity)
     this.props.addToCart(orderId, productId, quantity);
-  } 
+  }
 
 
   handleLocalStorageAdd(product) {
@@ -69,7 +69,7 @@ class SingleProduct extends React.Component {
         <img src={product.image} />
         <h1>{product.product_name}</h1>
         <h3>{`$${product.price/100}`}</h3>
-        
+
         {/* User logged in: */}
         {this.props.isLoggedIn ? (
           // if cart has items:
@@ -99,7 +99,7 @@ class SingleProduct extends React.Component {
               </form>
             </div>
         )}
-        
+
         <p>{product.description}</p>
         <Link to={'/products'}>Back</Link>
       </div>

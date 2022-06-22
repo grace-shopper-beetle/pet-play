@@ -66,6 +66,11 @@ router.put('/cart/add/:orderId/:productId', async (req, res, next) => {
     // quantity comes from event.target.value
     const cart = await order.getProducts();
     res.json(cart);
+  }
+  catch(err) {
+    next(err);
+  }
+})
 
 // PUT /api/orders/:orderId
 router.put('/cart/:orderId', async (req, res, next) => {
