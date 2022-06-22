@@ -153,12 +153,14 @@ const products = [{
   price: 990,
   image: "https://i5.walmartimages.com/asr/5fff9be7-1c16-4ab1-89dc-e7d3f96b193e.68ce65d3b0389086f1767415b5875e38.jpeg",
   description: "Keep your furry friend distracted and entertained with this rope toy. This item is intended to redirect your pet's attention so he or she does not engage in potentially destructive chewing behavior. Such interactive dog toys are specially engineered for playful and aggressive pets and help convert high energy into positive playtime. This one is a fun choice for playing tug, catch or fetch."
+
 }, {
   product_name: "Catnip Filled Plush Mouse - 5 Pack",
   category: "cat",
   price: 1551,
   image: "https://img.chewy.com/is/image/catalog/245899_MAIN._AC_SL600_V1607371641_.jpg",
   description: "This mousy crew packs triple the fun for cats everywhere—a fuzzy texture to grab and bite, string tails to chase, and an infusion of Canadian catnip to go wild over! Toss these around to get cats chasing and batting after them, or carrying them around as their playtime prey. By stimulating their natural hunting instincts, it’s the perfect way to provide cats with the daily exercise they need."
+
 }, {
   product_name: "Rubber Balls - Set of 10",
   category: "dog",
@@ -171,6 +173,7 @@ const products = [{
   price: 2836,
   image: "https://m.media-amazon.com/images/I/81wRLaUseAL._AC_SL1500_.jpg",
   description: "Treat your pup to a tiny treat with big taste! This wholesome dog treat box is locally baked and contains an adorable variety of hand decorated and wholesome dog cookies, all baked into fun shapes with a great taste dogs go crazy over."
+  
 }, {
   product_name: "Cat Castle Tower",
   category: "cat",

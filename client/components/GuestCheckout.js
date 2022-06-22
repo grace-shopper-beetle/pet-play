@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
 
 //**'Proceed to Checkout' button from cart leads to this form page */
 
@@ -9,17 +9,12 @@ class GuestCheckout extends Component {
     super();
 
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
 
   handleSubmit(evt) {
-    evt.preventDefault()
+    evt.preventDefault();
+    localStorage.removeItem('cart');
   }
-
-  handleChange() {
-    console.log('the checkbox was toggled')
-  }
-
 
   render() {
     const localStorageCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -31,8 +26,8 @@ class GuestCheckout extends Component {
   )
   const cartQuantity = localStorageCart.reduce((previouQuantity, item) => {
     const itemQuantity = item.quantity;
-    return previouQuantity + itemQuantity 
-  }, 0) 
+    return previouQuantity + itemQuantity
+  }, 0)
     return (
   <div className="row">
     <div className="col-75">
@@ -43,20 +38,24 @@ class GuestCheckout extends Component {
           <div className="row">
                 <div className="col-50">
                   <h3>Billing Address</h3>
-                  <label htmlFor="fname"><i className="fa fa-user"></i> Full Name</label>
-                  <input type="text" id="fname" name="firstname" placeholder="John M. Doe" />
+                  <label htmlFor="first_name"><i className="fa fa-user"></i> First Name</label>
+                  <input type="text" id="fname" name="first_name" placeholder="John" required />
+                  <label htmlFor="last_name"><i className="fa fa-user"></i> Last Name</label>
+                  <input type="text" id="lname" name="last_name" placeholder="Doe" required />
                   <label htmlFor="email"><i className="fa fa-envelope"></i> Email</label>
-                  <input type="text" id="email" name="email" placeholder="john@example.com" />
+                  <input type="text" id="email" name="email" placeholder="john@example.com" required />
                   <label htmlFor="adr"><i className="fa fa-address-card-o"></i> Address</label>
-                  <input type="text" id="adr" name="address" placeholder="542 W. 15th Street" />
+                  <input type="text" id="adr" name="street_address" placeholder="542 W. 15th Street" required />
                   <label htmlFor="city"><i className="fa fa-institution"></i> City</label>
-                  <input type="text" id="city" name="city" placeholder="New York" />
+                  <input type="text" id="city" name="city" placeholder="New York" required />
                   <label htmlFor="state">State</label>
-                  <input type="text" id="state" name="state" placeholder="NY" />
+                  <input type="text" id="state" name="state" placeholder="NY" required />
                   <label htmlFor="zip">Zip</label>
-                  <input type="text" id="zip" name="zip" placeholder="10001" />
+                  <input type="text" id="zip" name="zip" placeholder="10001" required />
+                  <label htmlFor="phone">Phone Number</label>
+                  <input type="text" id="phone" name="phone" placeholder="5555555555" required />
                 </div>
-      
+
                 <div className="col-50">
                   <h3>Payment</h3>
                   <label htmlFor="fname">Accepted Cards</label>
@@ -77,8 +76,8 @@ class GuestCheckout extends Component {
                   <label htmlFor="cvv">CVV</label>
                   <input type="text" id="cvv" name="cvv" placeholder="352" />
                 </div>
-      
-              
+
+
           </div>
               <label>
                 <input type="checkbox" name="sameadr" onChange = {this.handleChange} /> Shipping address same as billing
@@ -87,7 +86,7 @@ class GuestCheckout extends Component {
         </form>
       </div>
     </div>
-      
+
         <div className="col-25">
           <div className="container">
             <h4>Cart
@@ -98,18 +97,19 @@ class GuestCheckout extends Component {
             </h4>
             {localStorageCart.map(item => {
               return (
-                <p key={item.id}>{`${item.name} x ${item.quantity}`}<span className="price">{`$${item.price}`}</span></p>
+                <p key={item.id}>{`${item.product_name} x ${item.quantity}`}<span className="price">{`$${item.price/100}`}</span></p>
                 // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
                 // Temporarily removed anchor tag because unsure of how to implement with localStorage
               )
             })}
             <hr />
             <p>Total <span className="price"><b>{`$${guestCartTotal}`}</b></span></p>
+            <Link to={'/cart'}><button type='button'>Return to Cart</button></Link>
           </div>
         </div>
   </div>
     )
-  } 
+  }
 }
 
 export default (GuestCheckout)
