@@ -19,14 +19,10 @@ class GuestCheckout extends Component {
   render() {
     const localStorageCart = JSON.parse(localStorage.getItem('cart')) || [];
     console.log("this is local storage", localStorageCart)
-    const guestCartTotal = localStorageCart.reduce((sum, itemPrice) => {
-      const price = itemPrice.price;
-      return sum + price
-      }, 0
-  )
-  const cartQuantity = localStorageCart.reduce((previouQuantity, item) => {
+
+    const cartQuantity = localStorageCart.reduce((previousQuantity, item) => {
     const itemQuantity = item.quantity;
-    return previouQuantity + itemQuantity
+    return previousQuantity + itemQuantity
   }, 0)
     return (
   <div className="row">
@@ -92,18 +88,18 @@ class GuestCheckout extends Component {
             <h4>Cart
               <span className="price">
                 <i className="fa fa-shopping-cart"></i>
-                <b>  {cartQuantity}</b>
+                {/* <b>{Number(cartQuantity)}</b> */}
               </span>
             </h4>
             {localStorageCart.map(item => {
               return (
-                <p key={item.id}>{`${item.product_name} x ${item.quantity}`}<span className="price">{`$${item.price/100}`}</span></p>
+                <p key={item.id}>{`${item.product_name} x ${item.quantity}`}<span className="price">{`$${item.price * item.quantity / 100}`}</span></p>
                 // wrap item name with <a href="#">'Product name here'</a> to link back to item page?
                 // Temporarily removed anchor tag because unsure of how to implement with localStorage
               )
             })}
             <hr />
-            <p>Total <span className="price"><b>{`$${guestCartTotal / 100}`}</b></span></p>
+            <p>Total <span className="price"><b>{`$${(localStorageCart.reduce((sum, item) => (sum + (item.price * item.quantity)), 0))/100}`}</b></span></p>
             <Link to={'/cart'}><button type='button'>Return to Cart</button></Link>
           </div>
         </div>
