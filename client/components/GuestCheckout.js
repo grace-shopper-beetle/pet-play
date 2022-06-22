@@ -103,7 +103,7 @@ class GuestCheckout extends Component {
               )
             })}
             <hr />
-            <p>Total <span className="price"><b>{`$${guestCartTotal}`}</b></span></p>
+            <p>Total <span className="price"><b>{`$${guestCartTotal / 100}`}</b></span></p>
             <Link to={'/cart'}><button type='button'>Return to Cart</button></Link>
           </div>
         </div>
