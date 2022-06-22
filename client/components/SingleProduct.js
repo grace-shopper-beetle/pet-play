@@ -63,8 +63,8 @@ class SingleProduct extends React.Component {
     console.log(this.props.cart)
 
     return (
-      <div>
-        <img src={product.image} />
+      <div className="card">
+        <img src={product.image}/>
         <h1>{product.product_name}</h1>
         <h3>{`$${product.price/100}`}</h3>
 
@@ -99,7 +99,8 @@ class SingleProduct extends React.Component {
         )}
 
         <p>{product.description}</p>
-        <Link to={'/products'}>Back</Link>
+        <p><button type='button'>Add to Cart</button></p>
+        <p><Link to={'/products'}>Back</Link></p>
       </div>
     )
   }
