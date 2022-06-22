@@ -31,23 +31,24 @@ class SingleProduct extends React.Component {
     }
   }
 
-  handleAddToCart(orderId, productId, quantity) {
-    // event.preventDefault();
+  handleAddToCart(userId, orderId, productId, quantity) {
+    event.preventDefault();
     // console.log('orderId', orderId)
     // console.log('productId', productId)
     // console.log('quantity', quantity)
-    this.props.addToCart(orderId, productId, quantity);
+    this.props.addToCart(userId, orderId, productId, quantity);
   } 
 
   handleLocalStorageAdd(product) {
-    const localStorageCart = JSON.parse(localStorage.getItem('cart'));
-    console.log('this is localCart', localStorageCart);
+    let localStorageCart = JSON.parse(localStorage.getItem('cart'));
     if (localStorageCart) {
+      product['quantity'] = this.state.quantity;
       localStorageCart.push(product)
-      localStorage.setItem('cart', localStorageCart);
+      localStorage.setItem('cart', JSON.stringify(localStorageCart));
     } else {
       localStorage.setItem('cart', JSON.stringify([product]))
     }
+    console.log('this is localCart', localStorageCart);
   }
 
   handleChange(event) {
@@ -70,24 +71,29 @@ class SingleProduct extends React.Component {
         {/* User logged in: */}
         {this.props.isLoggedIn ? (
           // if cart has items:
-          cart ? (
+          // cart ? (
             <div>
-              {/* this.handleAddToCart(cart[0].order_product.orderId, product.id, this.state.quantity) */}
+              <form>
+                <label htmlFor='quantity'>Quantity: </label>
+                <input type='number' name='quantity' value={this.state.quantity} min={1} max={10} onChange={this.handleChange}/>
+                
+                <button onClick={() => this.handleAddToCart(this.props.auth.id, cart.order_product.orderId, product.id, this.state.quantity)}>Add to Cart</button>
+              </form>
+            </div>
+          // ) : (
+            // empty cart, create a new orderId?
+            // "add product to a new order Id? "
+          // )
+        ) : (
+          // Guest Users:
+          <div>
               <form>
                 <label htmlFor='quantity'>Quantity: </label>
                 <input type='number' name='quantity' value={this.state.quantity} min={1} max={10} onChange={this.handleChange}/>
 
-                <button onClick={() => this.handleAddToCart(cart[0].order_product.orderId, product.id, this.state.quantity)}>Add to Cart</button>
+                <button key={product.id} type='button' onClick={() => this.handleLocalStorageAdd(product, this.state.quantity)}>Add to Cart</button>
               </form>
             </div>
-            // cart[0] is used to grab the currently open cart's id
-          ) : (
-            // empty cart, create a new orderId?
-            "add product to a new order Id? "
-          )
-        ) : (
-          // Guest Users:
-          <button key={product.id} type='button' onClick={() => this.handleLocalStorageAdd(product)}>Add To Cart</button>
         )}
         <p>{product.description}</p>
         <Link to={'/products'}>Back</Link>
@@ -109,7 +115,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => ({
   fetchSingleProduct: (id) => dispatch(fetchSingleProduct(id)),
   fetchCart: (id) => dispatch(fetchCart(id)),
-  addToCart: (orderId, productId, quantity) => dispatch(addToCart(orderId, productId, quantity))
+  addToCart: (userId, orderId, productId, quantity) => dispatch(addToCart(userId, orderId, productId, quantity))
 })
 
 export default connect(mapState, mapDispatch)(SingleProduct);
