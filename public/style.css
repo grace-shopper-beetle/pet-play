@@ -29,8 +29,15 @@ form div {
 
 /*NavBar*/
 .navbar {
-  background-color: #269bab;
-  /* rgb(255, 95, 66); */
+  background-color: #2eb8b8;
+}
+
+.fa-paw {
+  /* color: #ff6633; */
+}
+
+.fa-shopping-cart {
+  font-size: large;
 }
 
 
@@ -57,6 +64,7 @@ form div {
 
 .card button:hover {
   opacity: 0.7;
+  background-color: #2eb8b8;
 }
 
 .card h3 {
@@ -64,27 +72,35 @@ form div {
 }
 
 .card p {
-  color: rgb(255, 95, 66);
+  color: #ff6633;
 }
 
 .column {
-  /* float: left; */
-  /* width: 25%; */
   padding: 0 10px;
+}
+
+.description p {
+  color:rgb(49, 46, 46);
 }
 
 img {
   width: 100%;
 }
 
-/* .row {
+.row {
   margin: 0 -5px;
-} */
+}
 
 .row:after {
   content: "";
   display: table;
   clear: both
+}
+
+/*Admin Add/Edit Product*/
+.edit button {
+  color: white;
+  background-color: #ff6633;
 }
 
 /*Guest Checkout*/

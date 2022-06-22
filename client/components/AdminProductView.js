@@ -27,18 +27,27 @@ class AdminProductView extends Component {
               <h2 className="section-title">All Products</h2>
               <button type='button'><Link to={'/admin/products/add'}>Add Product</Link></button>
               <ul className="container">
-                {products && products.map((product) => (
-                  <div className="product" key={product.id}>
-                    <h3>{product.product_name}</h3>
-                    <img src={product.image} />
-                    <h4>Category: {product.category}</h4>
-                    <p>{`$${product.price/100}`}</p>
-                    <p>{product.description}</p>
-                    <button type='button'><Link to={`/admin/products/${product.id}`}>Edit Product</Link></button>
-                    <button type='button' onClick={() => this.handleDelete(product)}>Delete Product</button>
-                    <hr />
-                  </div>
-                ))}
+                <div className="row">
+                  {products && products.map((product) => (
+                    <div className="column">
+                      <div className="card" key={product.id}>
+                        <img src={product.image} />
+                        <h3>{product.product_name}</h3>
+                        <h4>Category: {product.category}</h4>
+                        <p>{`$${product.price/100}`}</p>
+                        <div className="description" >
+                          <p>{product.description}</p>
+                        </div>
+                        <div className="edit">
+                          <button type='button'><Link to={`/admin/products/${product.id}`}>Edit Product</Link></button>
+                        </div>
+                        <button type='button' onClick={() => this.handleDelete(product)}>Delete Product</button>
+                        <hr />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                
               </ul>
             </div>
           ): (
