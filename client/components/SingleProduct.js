@@ -43,13 +43,11 @@ class SingleProduct extends React.Component {
   handleLocalStorageAdd(product) {
     let localStorageCart = JSON.parse(localStorage.getItem('cart'));
     if (localStorageCart) {
-      product['quantity'] = this.state.quantity;
-      localStorageCart.push(product)
+      localStorageCart.push({...product, ...{quantity: this.state.quantity}})
       localStorage.setItem('cart', JSON.stringify(localStorageCart));
     } else {
-      localStorage.setItem('cart', JSON.stringify([product]))
+      localStorage.setItem('cart', JSON.stringify([{...product, ...{quantity: this.state.quantity}}]))
     }
-    console.log('this is localCart', localStorageCart);
   }
 
   handleChange(event) {
