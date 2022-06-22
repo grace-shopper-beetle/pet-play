@@ -13,6 +13,7 @@ import Confirmation from './components/Confirmation';
 import {me} from './store'
 import EditProduct from './components/EditProduct';
 import AddProduct from './components/AddProduct';
+import UserCheckout from './components/UserCheckout';
 
 /**
  * COMPONENT
@@ -29,12 +30,14 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route path='/' exact component={Home} />
+            <Route path='/' exact component={AllProducts} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/products" exact component={AllProducts} />
             <Route path="/products/:id" component={SingleProduct} />
             <Route path="/cart" component={Cart} />
+            <Route path="/checkout" component={UserCheckout} />
+            <Route path="/confirmation" component={Confirmation} />
             <Route path="/home" component={Home} />
             <Route path="/admin/users" component={AllUsers} />
             <Route path="/admin/products" exact component={AdminProductView} />
@@ -44,7 +47,7 @@ class Routes extends Component {
           </Switch>
         ) : (
           <Switch>
-            <Route path='/' exact component={ Login } />
+            <Route path='/' exact component={AllProducts} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/products" exact component={AllProducts} />

@@ -93,7 +93,7 @@ class Cart extends Component {
                         </ div>
                         <div>
                             <p>Total: {`$${(this.props.cart.reduce((sum, item) => (sum + (item.price * item.order_product.quantity)), 0))/100}`}</p>
-                            <button type='button'><Link to='/confirmation'>Place Order</Link></button>
+                            <button type='button'><Link to='/checkout'>Place Order</Link></button>
                         </div>
                     </div>
                 ) : (

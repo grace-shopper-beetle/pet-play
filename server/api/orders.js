@@ -66,35 +66,17 @@ router.put('/cart/add/:orderId/:productId', async (req, res, next) => {
     // quantity comes from event.target.value
     const cart = await order.getProducts();
     res.json(cart);
+
+// PUT /api/orders/:orderId
+router.put('/cart/:orderId', async (req, res, next) => {
+  try {
+    const order = await Order.findByPk(req.params.orderId);
+    await order.update({isOpen: false});
+    res.json(order);
+
   }
   catch(err) {
     next(err);
   }
 })
-
-// // PUT /api/orders/cart/:userId/:productId
-// router.put('/cart/add/:userId/:orderId/:productId', async (req, res, next) => {
-//   try {
-//     const order = await Order.findOrCreate({
-//       where: {
-//         userId: req.params.userId,
-//         isOpen: true
-//       }
-//       });
-//     const product = await Product.findByPk(req.params.productId);
-//     await order.addProduct(product);
-//     const orderProduct = await Order_Product.findOne({
-//       where: {
-//         orderId: req.params.orderId,
-//         productId: req.params.productId
-//       }})
-//     await orderProduct.update({quantity: req.body.quantity})
-//     // quantity comes from event.target.value
-//     const cart = await order.getProducts();
-//     res.json(cart);
-//   }
-//   catch(err) {
-//     next(err);
-//   }
-// })
 
