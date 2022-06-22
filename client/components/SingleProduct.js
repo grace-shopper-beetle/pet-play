@@ -67,6 +67,10 @@ class SingleProduct extends React.Component {
         <img src={product.image}/>
         <h1>{product.product_name}</h1>
         <h3>{`$${product.price/100}`}</h3>
+        <div className="description" >
+          <p>{product.description}</p>
+        </div>
+        
 
         {/* User logged in: */}
         {this.props.isLoggedIn ? (
@@ -98,8 +102,8 @@ class SingleProduct extends React.Component {
             </div>
         )}
 
-        <p>{product.description}</p>
-        <p><button type='button'>Add to Cart</button></p>
+        
+        {/* <p><button type='button'>Add to Cart</button></p> */}
         <p><Link to={'/products'}>Back</Link></p>
       </div>
     )
