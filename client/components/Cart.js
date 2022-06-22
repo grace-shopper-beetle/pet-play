@@ -106,11 +106,12 @@ class Cart extends Component {
                 // User is not logged in
                 localStorage.getItem('cart') ? (
                     // There are items in the cart
-                    <div>
-                        <div>
+                    <ul className="container">
+                        <div className="row">
                         {this.state.cart.map(item => {
                             return (
-                                <div key={item.id}>
+                                <div className="column">
+                                <div className="card" key={item.id}>
                                     <img src={item.image} />
                                     <h3>{item.product_name}</h3>
                                     <p>{`$${(item.price/100)*item.quantity}`}</p>
@@ -120,6 +121,7 @@ class Cart extends Component {
                                     </form>
                                     <button type='button' onClick={() => this.handleLocalStorageDelete(item.id)} >Remove From Cart</button>
                                 </div>
+                                </div>
                             )
                         })}
                         </ div>
@@ -127,7 +129,7 @@ class Cart extends Component {
                             <p>Total: {`$${(this.state.cart.reduce((sum, item) => (sum + (item.price * item.quantity)), 0))/100}`}</p>
                             <button type='button'><Link to='/checkout'>Proceed to Checkout</Link></button>
                         </div>
-                    </div>
+                    </ul>
                 ) : (
                     // There are no items in the cart
                     <div>Your cart is empty!</div>
