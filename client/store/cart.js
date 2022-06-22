@@ -2,6 +2,7 @@ import axios from 'axios'
 
 // ACTION TYPE
 const GET_CART = 'GET_CART';
+const ADD_TO_CART = 'ADD_TO_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
 const CLOSE_CART = 'CLOSE_CART';
@@ -13,6 +14,13 @@ export const getCart = (cartItems) => {
         cartItems
     }
 }
+
+export const _addToCart = (cartItems) => {
+    return {
+        type: ADD_TO_CART,
+        cartItems
+    }
+} 
 
 export const _removeFromCart = (cartItems) => {
     return {
@@ -47,10 +55,22 @@ export const fetchCart = (id) => {
     }
 }
 
+export const addToCart = (orderId, productId, quantity) => {
+    return async (dispatch) => {
+        try {
+            const {data} = await axios.put(`/api/orders/cart/add/${orderId}/${productId}`, {quantity});
+            dispatch(_addToCart(data));
+        }
+        catch(err) {
+            console.log(err);
+        }
+    }
+}
+
 export const removeFromCart = (orderId, productId) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.put(`/api/orders/cart/${orderId}/${productId}`);
+            const {data} = await axios.put(`/api/orders/cart/remove/${orderId}/${productId}`);
             dispatch(_removeFromCart(data));
         }
         catch(err) {
@@ -87,6 +107,8 @@ export const closeCart = (orderId, history) => {
 export default function cartReducer(state = [], action) {
     switch(action.type) {
         case GET_CART:
+            return action.cartItems;
+        case ADD_TO_CART:
             return action.cartItems;
         case REMOVE_FROM_CART:
             return action.cartItems;
