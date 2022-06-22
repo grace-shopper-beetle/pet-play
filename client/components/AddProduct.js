@@ -54,7 +54,10 @@ class AddProduct extends React.Component {
               <input name='image' value= {product.image} onChange={this.handleChange} />
               <label htmlFor='description'>Description: </label>
               <textarea name='description' value={product.description} onChange={this.handleChange} />
-              <button type='submit'>Submit</button>
+              <br/>
+              <div className="btn-update">
+                <button type='submit'>Submit</button>
+              </div>
               <Link to='/admin/products'>Cancel</Link>
             </form>
           </div>

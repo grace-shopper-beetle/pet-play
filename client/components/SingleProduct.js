@@ -81,7 +81,7 @@ class SingleProduct extends React.Component {
               <form>
                 <label htmlFor='quantity'>Quantity: </label>
                 <input type='number' name='quantity' value={this.state.quantity} min={1} max={10} onChange={this.handleChange}/>
-
+                <br/>
                 <button onClick={() => this.handleAddToCart(cart[0].order_product.orderId, product.id, this.state.quantity)}>Add to Cart</button>
               </form>
             </div>
@@ -96,7 +96,7 @@ class SingleProduct extends React.Component {
               <form>
                 <label htmlFor='quantity'>Quantity: </label>
                 <input type='number' name='quantity' value={this.state.quantity} min={1} max={10} onChange={this.handleChange}/>
-
+                <br/>
                 <button key={product.id} type='button' onClick={() => this.handleLocalStorageAdd(product, this.state.quantity)}>Add to Cart</button>
               </form>
             </div>

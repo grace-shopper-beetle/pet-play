@@ -32,6 +32,14 @@ form div {
   background-color: #2eb8b8;
 }
 
+.fa-paw {
+  /* color: #ff6633; */
+}
+
+.fa-shopping-cart {
+  font-size: large;
+}
+
 
 /*All Products & Single Product*/
 .card {
@@ -68,8 +76,6 @@ form div {
 }
 
 .column {
-  /* float: left; */
-  /* width: 25%; */
   padding: 0 10px;
 }
 
@@ -91,6 +97,11 @@ img {
   clear: both
 }
 
+/*Admin Add/Edit Product*/
+.edit button {
+  color: white;
+  background-color: #ff6633;
+}
 
 /*Guest Checkout*/
 .row {
