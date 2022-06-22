@@ -48,10 +48,10 @@ export const fetchCart = (id) => {
     }
 }
 
-export const addToCart = (userId, orderId, productId, quantity) => {
+export const addToCart = (orderId, productId, quantity) => {
     return async (dispatch) => {
         try {
-            const {data} = await axios.put(`/api/orders/cart/add/${userId}/${orderId}/${productId}`, {quantity});
+            const {data} = await axios.put(`/api/orders/cart/add/${orderId}/${productId}`, {quantity});
             dispatch(_addToCart(data));
         }
         catch(err) {
@@ -59,7 +59,6 @@ export const addToCart = (userId, orderId, productId, quantity) => {
         }
     }
 }
-
 
 export const removeFromCart = (orderId, productId) => {
     return async (dispatch) => {
@@ -91,7 +90,7 @@ export default function cartReducer(state = [], action) {
         case GET_CART:
             return action.cartItems;
         case ADD_TO_CART:
-            return action.cartItems
+            return action.cartItems;
         case REMOVE_FROM_CART:
             return action.cartItems;
         case CHANGE_QUANTITY:
