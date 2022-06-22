@@ -124,65 +124,68 @@ const users = [{
 }]
 
 const products = [{
-  product_name: "Cat Dancer",
+  product_name: "Cat Dancer Rainbow Charmer",
   category: "cat",
-  price: 500,
-  image: "http://dummyimage.com/203x100.png/5fa2dd/ffffff",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 457,
+  image: "https://buddysapetsstore.com/wp-content/uploads/2019/06/s-l640.jpg",
+  description: "An interactive cat toy designed to charm and not harm. With a polycarbonate wand and a very colorful fabric, the cat charmer provides excellent aerobic excercise and is a safe interactive toy for all kittens, cats, and kids."
 }, {
   product_name: "Bacon Flavored Wishbone For Chewing",
   category: "dog",
-  price: 1000,
-  image: "http://dummyimage.com/143x100.png/cc0000/ffffff",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 1004,
+  image: "https://img.chewy.com/is/image/catalog/91865_MAIN._AC_SL600_V1612396016_.jpg",
+  description: "Since dogs don’t have thumbs, why give them a chew that you can pick up and they can’t? With real bacon, peanut and chicken infused all the way through, your dog’s wish is coming true."
 }, {
   product_name: "Expandable Tunnel Fort",
   category: "cat",
-  price: 1500,
-  image: "http://dummyimage.com/224x100.png/dddddd/000000",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 1470,
+  image: "https://cdn-fastly.petguide.com/media/2022/02/28/8292605/media.jpg?size=414x575&nocrop=1",
+  description: "Watch your feline friend enjoy hours of hide, pounce and play with this Cat Tunnel Fort. Ideal for multiple cat households, where your cute kitties can pop into one and run out the other. Also comes with built-in flexible stainless steel frames that pop open when your pets are at play and fold flat for compact storage when not in use."
 }, {
   product_name: "Plush Dragon Toy",
   category: "dog",
-  price: 1500,
-  image: "http://dummyimage.com/135x100.png/dddddd/000000",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 1487,
+  image: "https://i5.walmartimages.com/asr/e02f3c23-9794-43b3-8ad8-e1ea757d5d90_1.5cf9061d7cef48211cb75b0a1e8ebb3f.jpeg",
+  description: "This plush dog toy with squeakers has been made specifically to provide your dog with hours of solo playtime and interactive fun. Each toy is cute, soft and sturdy and has been reinforced and double stitched, making sure that this product will last through many games of fetch."
 }, {
   product_name: "Knotted Rope",
   category: "dog",
-  price: 1000,
-  image: "http://dummyimage.com/197x100.png/ff4444/ffffff",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 990,
+  image: "https://i5.walmartimages.com/asr/5fff9be7-1c16-4ab1-89dc-e7d3f96b193e.68ce65d3b0389086f1767415b5875e38.jpeg",
+  description: "Keep your furry friend distracted and entertained with this rope toy. This item is intended to redirect your pet's attention so he or she does not engage in potentially destructive chewing behavior. Such interactive dog toys are specially engineered for playful and aggressive pets and help convert high energy into positive playtime. This one is a fun choice for playing tug, catch or fetch."
+
 }, {
-  product_name: "Catnip Filled Plush Mouse",
+  product_name: "Catnip Filled Plush Mouse - 5 Pack",
   category: "cat",
-  price: 1600,
-  image: "http://dummyimage.com/231x100.png/dddddd/000000",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 1551,
+  image: "https://img.chewy.com/is/image/catalog/245899_MAIN._AC_SL600_V1607371641_.jpg",
+  description: "This mousy crew packs triple the fun for cats everywhere—a fuzzy texture to grab and bite, string tails to chase, and an infusion of Canadian catnip to go wild over! Toss these around to get cats chasing and batting after them, or carrying them around as their playtime prey. By stimulating their natural hunting instincts, it’s the perfect way to provide cats with the daily exercise they need."
+
 }, {
-  product_name: "Rubber Balls - Set of 5",
+  product_name: "Rubber Balls - Set of 10",
   category: "dog",
-  price: 2500,
-  image: "http://dummyimage.com/127x100.png/cc0000/ffffff",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 2470,
+  image: "https://m.media-amazon.com/images/I/51LlAlb5qvL.jpg",
+  description: "This doggy rubber toy ball is the ultimate fetch ball, designed to bounce higher, float better, last longer, and stand out from the rest. Made from natural, high-bounce rubber, these doggy rubber balls encourages dogs to leap and jump for more stimulating games of fetch. These amazing rubber balls encourage nondestructive chewing habits while satisfying the natural urge to chew."
 }, {
   product_name: "Edible Pizza Pie Cookie Gift Set",
   category: "dog",
-  price: 2800,
-  image: "http://dummyimage.com/151x100.png/cc0000/ffffff",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 2836,
+  image: "https://m.media-amazon.com/images/I/81wRLaUseAL._AC_SL1500_.jpg",
+  description: "Treat your pup to a tiny treat with big taste! This wholesome dog treat box is locally baked and contains an adorable variety of hand decorated and wholesome dog cookies, all baked into fun shapes with a great taste dogs go crazy over."
+  
 }, {
-  product_name: "Cat Castle",
+  product_name: "Cat Castle Tower",
   category: "cat",
-  price: 7800,
-  image: "http://dummyimage.com/223x100.png/cc0000/ffffff",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'
+  price: 7834,
+  image: "https://www.cozycatfurniture.com/image/cache/catalog/cat-tree-house-climbing-green-brown-500x500.jpg",
+  description: "Don’t settle for an average cat tree when your cat is anything but average! This super plush cat tower is designed for larger cats making it it ideal for big breeds and multi-cat homes. With plenty of scratching areas, this cat tower was truly designed with your cat in mind."
 }, {
   product_name: "Creamy Lickable Cat Treat - 20 pack",
   category: "cat",
-  price: 2500,
-  image: "http://dummyimage.com/174x100.png/cc0000/ffffff",
-  description: 'Puppy kitty ipsum dolor sit good dog foot stick canary. Teeth Mittens grooming vaccine walk swimming nest good boy furry tongue heel furry treats fish. Cage run fast kitten dinnertime ball run foot park fleas throw house train licks stick dinnertime window.'}]
+  price: 2474,
+  image: "https://usa.catit.com/wp-content/uploads/2019/10/Creamy-5-packs.jpg",
+  description: "Lickable cat treats your cat will love you for! Hydrating cat treats in 4 delicious flavors: Chicken & Liver, Salmon, Tuna and Seafood. Delicious by itself or as dry food topping."}]
 
 
 
